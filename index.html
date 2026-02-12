@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carnaval Courchapoix</title>
 
-    <!-- Icônes (Font Awesome) -->
+	<!-- Icônes (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        /* ============================= STYLE GLOBAL ============================== */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -27,24 +28,13 @@
             margin-bottom: 30px;
         }
 
-        .info {
-            font-size: 0.95rem;
-            color: #555;
-            margin: 15px auto 25px auto;
-            max-width: 600px;
-            background: #ffffffcc;
-            padding: 12px 18px;
-            border-left: 4px solid #d12c8a;
-            border-radius: 6px;
-            text-align: center;
-        }
-
         .logo {
             width: 60%;
             max-width: 250px;
             margin-bottom: 20px;
         }
 
+        /* ============================= BOUTONS ============================== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -55,22 +45,28 @@
             font-size: 1rem;
             border-radius: 8px;
             text-decoration: none;
-            color: white;
+            color: #fff;
             font-weight: bold;
             width: 90%;
             max-width: 350px;
             cursor: pointer;
         }
 
-        .whatsapp { background-color: #25D366; }
-        .email { background-color: #0072c6; }
-        .sms { background-color: #444; }
-
         .btn i {
             font-size: 1.3rem;
         }
 
-        /* Citation style affiche */
+        .whatsapp { background-color: #25D366; }
+        .email    { background-color: #0072c6; }
+        .sms      { background-color: #444; }
+		.call     { background-color: #F4A460; display: none; }
+
+        /* Mobile only: bouton Appeler */
+        @media (max-width: 768px) {
+            .call { display: inline-flex; }
+        }
+
+        /* ============================= CITATION ============================== */
         .citation {
             margin-top: 40px;
             font-size: 1rem;
@@ -95,33 +91,17 @@
             position: absolute;
         }
 
-        .citation::before {
-            top: -18px;
-            left: -10px;
-        }
+        .citation::before { top: -18px; left: -10px; }
+        .citation::after  { bottom: -18px; right: -10px; }
 
-        .citation::after {
-            bottom: -18px;
-            right: -10px;
-        }
-
-        /* Footer copyright */
-        footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #666;
-            opacity: 0.9;
-        }
-
-        /* POPUP */
+        /* ============================= POP-UP ============================== */
         .popup-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             background: #00000066;
-            display: none;
+            display: none; /* caché par défaut */
             justify-content: center;
             align-items: center;
             z-index: 999;
@@ -132,6 +112,7 @@
             padding: 25px;
             border-radius: 12px;
             max-width: 350px;
+            width: calc(100% - 40px);
             text-align: center;
             box-shadow: 0 4px 15px #00000044;
             border-left: 5px solid #d12c8a;
@@ -149,55 +130,70 @@
             font-size: 1rem;
         }
 
-        .popup .cancel {
-            background: #555;
+        .popup .cancel { background: #555; margin-left: 8px; }
+
+        /* ============================= FOOTER ============================== */
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #666;
+            opacity: 0.9;
         }
 
+        /* ============================= RESPONSIVE FINE ============================== */
         @media (max-width: 480px) {
             h1 { font-size: 2rem; }
             h2 { font-size: 1.1rem; }
             .btn { font-size: 0.95rem; padding: 12px; }
             .citation { font-size: 0.95rem; padding: 18px; }
         }
+		
+		
+
     </style>
 </head>
 
 <body>
 
-    <!-- POPUP -->
-    <div id="popup-container" class="popup-overlay">
+    <!-- ============================= POP-UP ============================== -->
+    <div id="popup-container" class="popup-overlay" aria-hidden="true">
         <div class="popup">
             😄 Petit rappel !<br><br>
-            Merci d’éviter d’envoyer des photos et vidéos bizarres… on a déjà assez d’amis comme ça 😅<br><br>
-            On les adore mais seulement celles qui sont appropriées 📜
+            Merci d’éviter d’envoyer des photos et vidéos bizarres…<br>
+            On a déjà assez d’amis comme ça 😅<br><br>
+            On les adore, mais seulement lorsqu’elles sont appropriées ✔
             <br><br>
-            <button onclick="continueAction()">Continuer 👍</button>
-            <button class="cancel" onclick="closePopup()">Annuler ❌</button>
+            <button type="button" onclick="continueAction()">Continuer 👍</button>
+            <button type="button" class="cancel" onclick="closePopup()">Annuler ❌</button>
         </div>
     </div>
 
-    <!-- Logo -->
-    <img src="assets/logo-carnaval.png" alt="Logo Carnaval Courchapoix" class="logo">
+    <!-- ============================= LOGO ============================== -->
+    <img src="assets/logo-carnaval.png" alt="Logo Carnaval Courchapoix" class="logo" />
 
+    <!-- ============================= TITRES ============================== -->
     <h1>🎉Carnaval🎉<br>Courchapoix</h1>
     <h2>📸<br>Envoyez-nous vos photos et vidéos de notre passage !</h2>
 
-    <!-- Bouton WhatsApp -->
+    <!-- ============================= BOUTONS ============================== -->
     <a class="btn whatsapp" onclick="openPopup('https://wa.me/41779800335')">
         <i class="fa-brands fa-whatsapp"></i> WhatsApp
     </a>
 
-    <!-- Bouton Email -->
     <a class="btn email" onclick="openPopup('mailto:carnaval.courchapoix@gmail.com')">
-        <i class="fa-solid fa-envelope"></i> E-Mail
+        <i class="fa-solid fa-envelope"></i> E‑Mail
     </a>
 
-    <!-- Bouton SMS -->
     <a class="btn sms" onclick="openPopup('sms:+41779800335')">
         <i class="fa-solid fa-comment-dots"></i> Message
     </a>
 
-    <!-- Citation style affiche -->
+    <!-- Bouton Appeler (mobile only) -->
+    <a class="btn call" onclick="openPopup('tel:+41779800335')">
+        <i class="fa-solid fa-phone"></i> Appeler
+    </a>
+
+    <!-- ============================= CITATION ============================== -->
     <div class="citation">
         “Pour le Carnaval de Trissville, l'équipe de Courchapoix a décidé de rendre hommage à Cloclo et son téléphone.
         Bien que l’invention revienne à ce cher Bell, Claude François aura quant-à-lui réussi à le faire chanter.
@@ -205,26 +201,43 @@
         Le téléphone, le vrai, nous a fait rire, vibrer et pleurer.”
     </div>
 
-    <!-- Footer copyright -->
+    <!-- ============================= COPYRIGHT ============================== -->
     <footer>
         © 2014 - 2026 Carnaval groupe Courchapoix – Tous droits réservés
     </footer>
 
+    <!-- ============================= JS DU POP-UP ============================== -->
     <script>
         let actionUrl = "";
 
         function openPopup(url) {
             actionUrl = url;
-            document.getElementById("popup-container").style.display = "flex";
+            const overlay = document.getElementById("popup-container");
+            overlay.style.display = "flex";
+            overlay.setAttribute("aria-hidden", "false");
         }
 
         function closePopup() {
-            document.getElementById("popup-container").style.display = "none";
+            const overlay = document.getElementById("popup-container");
+            overlay.style.display = "none";
+            overlay.setAttribute("aria-hidden", "true");
         }
 
         function continueAction() {
-            window.location.href = actionUrl;
+            if (actionUrl) {
+                window.location.href = actionUrl;
+            }
         }
+
+        // Fermer en cliquant en dehors
+        document.getElementById("popup-container").addEventListener("click", function (e) {
+            if (e.target === this) closePopup();
+        });
+
+        // Echappe pour fermer
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closePopup();
+        });
     </script>
 
 </body>
