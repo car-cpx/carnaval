@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnaval Courchapoix</title>
+
+    <!-- Icônes (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 60%;
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            margin: 8px;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .whatsapp { background-color: #25D366; }
+        .email { background-color: #0072c6; }
+        .sms { background-color: #444; }
+
+        .btn i {
+            font-size: 1.3rem;
+        }
+
+        /* Citation style affiche */
+        .citation {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #333;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+            line-height: 1.6;
+            padding: 20px;
+            background: #ffffffcc;
+            border: 3px dashed #d12c8a;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #00000022;
+            position: relative;
+        }
+
+        .citation::before,
+        .citation::after {
+            content: "🎉";
+            font-size: 1.8rem;
+            position: absolute;
+        }
+
+        .citation::before {
+            top: -18px;
+            left: -10px;
+        }
+
+        .citation::after {
+            bottom: -18px;
+            right: -10px;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.1rem; }
+            .btn { font-size: 0.95rem; padding: 12px; }
+            .citation { font-size: 0.95rem; padding: 18px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Logo -->
+    <img src="assets/logo-carnaval.png" alt="Logo Carnaval Courchapoix" class="logo">
+
+    <h1>🎉 Carnaval Courchapoix 🎉</h1>
+    <h2>📸 Envoyez-nous vos photos et vidéos de notre passage ! 📸</h2>
+
+    <!-- Bouton WhatsApp -->
+    <a class="btn whatsapp" href="https://wa.me/41779800335" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <!-- Bouton Email -->
+    <a class="btn email" href="mailto:carnaval.courchapoix@gmail.com">
+        <i class="fa-solid fa-envelope"></i> E-Mail
+    </a>
+
+    <!-- Bouton SMS -->
+    <a class="btn sms" href="sms:+41779800335">
+        <i class="fa-solid fa-comment-dots"></i> Message
+    </a>
+
+    <!-- Citation style affiche -->
+    <div class="citation">
+        “Pour le Carnaval de Trissville, l'équipe de Courchapoix a décidé de rendre hommage à Cloclo et son téléphone.
+        Bien que l’invention revienne à ce cher Bell, Claude François aura quant-à-lui réussi à le faire chanter.
+        Et oui, voilà que cette équipe ressort le bon vieux téléphone du placard. À bas les smartphones et leur technologie moderne.
+        Le téléphone, le vrai, nous a fait rire, vibrer et pleurer.”
+    </div>
+
+</body>
+</html>
